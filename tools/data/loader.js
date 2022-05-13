@@ -34,7 +34,7 @@ function loadData() {
   for (let i=0; i<length; i++) {
     let nextData = [];
     for (let j=0; j<width*height; j++) {
-      nextData.push(dataFile.readUInt8(offset) < 200? 0 : 1); // 50% brightness filtering
+      nextData.push(dataFile.readUInt8(offset) / 256); // 50% brightness filtering
       offset++;
     }
     dataArray.push(nextData);

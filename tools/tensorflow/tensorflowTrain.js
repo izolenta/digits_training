@@ -44,7 +44,7 @@ model.compile({
 
 const {length, dataArray, labelsArray} = loadData();
 
-const data = tf.tensor2d(dataArray, [length, 784]);
+const data = tf.tensor2d(dataArray);
 const labels = tf.tensor2d(labelsArray, [length, 10]);
 
 const [trainXs, trainYs] = tf.tidy(() => {
@@ -55,9 +55,9 @@ const [trainXs, trainYs] = tf.tidy(() => {
 });
 
 await model.fit(trainXs, trainYs, {
-  batchSize: 500,
+  batchSize: 100,
   //validationData: [testXs, testYs],
-  epochs: 5,
+  epochs: 10,
   shuffle: true,
   //callbacks: fitCallbacks
 });
